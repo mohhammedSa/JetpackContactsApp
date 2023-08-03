@@ -354,7 +354,7 @@ fun MyContactRow(data: ContactData, deleteClick: () -> Unit, updateClick: () -> 
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(modifier = Modifier.padding(10.dp)) {
+            Column(modifier = Modifier.padding(5.dp)) {
                 Text(
                     text = data.name,
                     color = MaterialTheme.colorScheme.background,
@@ -366,23 +366,20 @@ fun MyContactRow(data: ContactData, deleteClick: () -> Unit, updateClick: () -> 
                     color = MaterialTheme.colorScheme.background
                 )
             }
-            Row {
-                IconButton(onClick = deleteClick)
-                {
-                    Icon(
-                        imageVector = Icons.Filled.Delete,
-                        contentDescription = "",
-                        tint = Color.Red
-                    )
-                }
-                IconButton(onClick = updateClick)
-                {
-                    Icon(
-                        imageVector = Icons.Filled.Edit,
-                        contentDescription = "",
-                        tint = Color.Green
-                    )
-                }
+            Row(modifier = Modifier.padding(5.dp)) {
+                Icon(
+                    imageVector = Icons.Filled.Delete,
+                    contentDescription = "",
+                    tint = Color.Red,
+                    modifier = Modifier.clickable(onClick = deleteClick)
+                )
+                Spacer(modifier = Modifier.padding(start = 5.dp))
+                Icon(
+                    imageVector = Icons.Filled.Edit,
+                    contentDescription = "",
+                    tint = Color.Green,
+                    modifier = Modifier.clickable(onClick = updateClick)
+                )
             }
         }
     }
